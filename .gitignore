@@ -1,0 +1,33 @@
+# Entorno virtual de Python
+.venv/
+venv/
+env/
+ENV/
+*.pyc
+__pycache__/
+
+# Configuración de desarrollo
+instance/
+
+# Archivos de entorno y configuración
+*.env
+
+# Archivos de base de datos SQLite
+*.db
+*.sqlite3
+
+# Archivos de registro
+*.log
+
+# Configuración de Azure
+.local_settings.py
+
+# Archivos de caché
+*.swp
+*.swo
+
+# Archivos de sistema operativos y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

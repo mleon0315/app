@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargar Facturas</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='dist/css/sweetalert2.min.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='dist/js/sweetalert2.all.min.js') }}"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Descargar Facturas desde DIAN</h2>
+        <form id="downloadForm" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="archivo" class="form-label">Cargar archivo Excel:</label>
+                <input type="file" class="form-control" id="archivo" name="archivo" required>
+                <div id="invalidFile" style="color: red;">
+
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="estado" class="form-label">Seleccionar estado:</label>
+                <select class="form-select" id="estado" name="estado" required>
+                    <option selected disabled></option>
+                    <option value="Revisar">Revisar</option>
+                    <option value="Maicol">Maicol</option>
+                    <!-- Agregar más opciones según sea necesario -->
+                </select>
+                <div id="invalidState" style="color: red;">
+
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="carpeta_descargas" class="form-label">Ruta de descarga:</label>
+                <input type="text" class="form-control" id="carpeta_descargas" name="carpeta_descargas"
+                    placeholder="Ingresa la ruta de descarga" required>
+                <div id="invalidWay" style="color: red;">
+
+                </div>
+            </div>
+            <button id="startDownload" type="submit" class="btn btn-primary w-100 mt-3">Iniciar Descarga</button>
+        </form>
+
+        <!-- BARRA DE PROGRESO -->
+        <div class="mt-4">
+            <div id="statusMessage"></div>
+            <div class="progress mt-3">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
+                    aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+        </div>
+    </div> <!--CIERRA EL CONTAINER-->
+    <!-- <script>
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            text: "message",
+            showConfirmButton: true,
+            timer: 5000
+        })
+    </script> -->
+
+    <script src="{{ url_for('static', filename='dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script> 
+</body>
+
+</html>
